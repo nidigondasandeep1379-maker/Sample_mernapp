@@ -1,6 +1,7 @@
 let express=require('express');
 let app=express();
 let empRoute=require('./Routes/emp_route');
+let hrRoute=require('./Routes/hr_route');
 app.use("/api/emp",empRoute); // Connect the emp_route.js with the main index.js file
 app.use("/api/hr",hrRoute); // Connect the hr_route.js with the main index.js file
 // localhost:3000/api/emp/register => post
