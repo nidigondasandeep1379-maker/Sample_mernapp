@@ -1,9 +1,17 @@
 let express=require('express');
 let app=express();
+let mongoose=require('mongoose');
 let empRoute=require('./Routes/emp_route');
 let hrRoute=require('./Routes/hr_route');
 app.use("/api/emp",empRoute); // Connect the emp_route.js with the main index.js file
-app.use("/api/hr",hrRoute); // Connect the hr_route.js with the main index.js file
+app.use("/api/hr",hrRoute);
+mongoose.connect("mongodb://127.0.0.1:27017/hrmanagement")
+.then( () =>
+console.log("db connected successfully")
+)
+.catch((err) => console.log (err)
+)
+    
 // localhost:3000/api/emp/register => post
 // localhost:3000/api/emp/login     => post
 // localhost:3000/api/emp/viewtask  => get
